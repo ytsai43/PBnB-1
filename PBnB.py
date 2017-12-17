@@ -26,7 +26,7 @@ def PBnB (fun_blackbox): # PBnB(rosenbrock)
     f_epsilon_k = float(par.f_epsilon)/i_B
                 
     i_R_k = par.i_replication
-    i_k = 1
+    i_k = 1  # iteration
     i_k_c = par.i_k_b
     i_c_k = par.i_c
     i_stopping_maxK = par.i_stopping_maxK
@@ -39,7 +39,7 @@ def PBnB (fun_blackbox): # PBnB(rosenbrock)
         print ('i_k:'+str(i_k))
         plot2D (l_subr, l_subr[0].l_coordinate_lower, l_subr[0].l_coordinate_upper,i_k)
         i_N_k = int(i_c_k/sum(1 for j in l_subr if j.s_label == 'C' and j.b_activate == True))
-        for i in (i for i in l_subr if i.s_label == 'C' and i.b_activate == True):
+        for i in (i for i in l_subr if i.s_label == 'C' and i.b_activate == True):  ????????????????????????
             i = fun_uni_sampler(i, f_alpha_k, i_N_k, i_R_k, i_dim, fun_blackbox) # <-- c_subr, f_alpha, i_n_samp, i_n_rep, i_dim, fun_blackbox
 
 # step 2: Order samples in each subregion and over all subregions byt estimated function values:
